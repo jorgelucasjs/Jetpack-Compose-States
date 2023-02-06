@@ -10,11 +10,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Checkbox
 
 @Composable
 fun WellnessTaskItem(
     taskName: String,
-    onClose: ()-> Unit,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    onClose: () -> Unit,
     modifier: Modifier = Modifier
 ){
     Row(
@@ -26,8 +29,12 @@ fun WellnessTaskItem(
                 .padding(start = 16.dp),
             text = taskName
         )
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange
+        )
         IconButton(onClick = onClose) {
-            Icon(Icons.Filled.Close, contentDescription = null)
+            Icon(Icons.Filled.Close, contentDescription = "Close")
         }
     }
 }
