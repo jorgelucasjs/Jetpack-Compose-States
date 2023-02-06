@@ -15,11 +15,11 @@ import androidx.compose.runtime.setValue
 
 @Composable
 fun WaterCounter(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(16.dp)) {
         var count by remember { mutableStateOf(0) }
-        if(count > 0){
+        if (count > 0) {
             var showTask by remember { mutableStateOf(true) }
-            if(showTask){
+            if (showTask) {
                 WellnessTaskItem(
                     onClose = { },
                     taskName = "Have you taken your 15 minute walk today?"
@@ -27,6 +27,7 @@ fun WaterCounter(modifier: Modifier = Modifier) {
             }
             Text("You've had $count glasses.")
         }
+
         Button(onClick = { count++ }, enabled = count < 10) {
             Text("Add one")
         }
